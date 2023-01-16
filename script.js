@@ -28,7 +28,7 @@ function water(arr) {
     const big = bigger(arr);
     if(big<2) return water([...arr.slice(big)]); 
     let total = (big-1) * arr[0];
-    for(let i = 1; i<big;i++) arr[i] ? total-=arr[i] : null;
+    for(let i = 1; i<big;i++) if(arr[i]) total-=arr[i];
     return total + water([...arr.slice(big)]);
 }
 console.log(water([2,0,2,5,7,1,2,1,1,5,1,3,3]));
